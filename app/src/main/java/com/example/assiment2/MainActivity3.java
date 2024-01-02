@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.android.volley.Request;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
 
 public class MainActivity3 extends AppCompatActivity {
     ListView list;
+    Button back;
 
     private RequestQueue queue;
 
@@ -31,7 +33,15 @@ public class MainActivity3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
         list=findViewById(R.id.list);
+        back=findViewById(R.id.Back);
         queue = Volley.newRequestQueue(this);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+
+            }
+        });
     }
     public void click(View view){
         String url = "https://jsonplaceholder.typicode.com/photos";

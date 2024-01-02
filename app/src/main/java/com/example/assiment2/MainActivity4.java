@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.android.volley.Request;
@@ -28,6 +29,7 @@ import java.util.ArrayList;
 public class MainActivity4 extends AppCompatActivity {
 
     ListView list;
+    Button back;
 
     private RequestQueue queue;
 
@@ -37,7 +39,14 @@ public class MainActivity4 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(layout.activity_main4);
         list = findViewById(id.list2);
+        back=findViewById(id.bac);
         queue = Volley.newRequestQueue(this);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     public void click(View view){
